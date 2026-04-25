@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchiveSorter — Privacy Policy</title>
+  <style>
+    :root {
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --bg: #ffffff;
+      --border: #e5e5ea;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --accent: #64a8ff;
+        --bg: #1d1d1f;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Helvetica Neue", Arial, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 2.25rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin: 0.75rem 0; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 0.9em;
+      background: var(--border);
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+    .highlight {
+      background: var(--border);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Privacy Policy</h1>
+  <div class="meta">
+    ArchiveSorter &middot; Last updated: April 25, 2026
+  </div>
+
+  <div class="highlight">
+    <strong>In short:</strong> ArchiveSorter does not collect, store, or
+    transmit any personal data to servers operated by the developer.
+    All document processing happens on your device.
+  </div>
+
+  <h2>1. Who We Are</h2>
+  <p>
+    ArchiveSorter is developed and maintained by Sebastian Schreck
+    (the &ldquo;Developer&rdquo;). You can reach the Developer at
+    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>.
+  </p>
+
+  <h2>2. Data We Collect</h2>
+  <p>
+    <strong>None.</strong> ArchiveSorter does not collect, log,
+    transmit, or store any personal data, usage data, analytics,
+    crash reports, advertising identifiers, or device identifiers
+    on any server operated by the Developer.
+  </p>
+  <p>
+    The Developer does not operate any backend service for this app.
+  </p>
+
+  <h2>3. On-Device Processing</h2>
+  <p>
+    All document scanning, optical character recognition (OCR),
+    classification, and language model inference is performed
+    locally on your device using:
+  </p>
+  <ul>
+    <li>Apple&rsquo;s Vision framework (OCR)</li>
+    <li>Apple&rsquo;s Foundation Models framework (on-device language model)</li>
+    <li>Apple&rsquo;s MLX framework (on-device language model inference)</li>
+  </ul>
+  <p>
+    Your documents, their contents, and any text extracted from them
+    never leave your device through any feature provided by the
+    Developer.
+  </p>
+
+  <h2>4. Optional Network Connections</h2>
+  <p>
+    Two optional features may cause network traffic. Both are
+    initiated by you and are not part of automatic data collection:
+  </p>
+
+  <p><strong>4.1 LM Studio (local network, optional)</strong></p>
+  <p>
+    You may configure the app to use a local LM Studio server
+    that you run yourself on your own computer or local network.
+    When you enable and use this feature, document text is sent
+    over your local network to the LM Studio server you control.
+    No data leaves your local network. The Developer does not
+    operate or have access to this server.
+  </p>
+
+  <p><strong>4.2 Hugging Face Model Downloads (optional)</strong></p>
+  <p>
+    When you choose to download an MLX language model, the app
+    fetches the model files directly from the Hugging Face Hub
+    (<a href="https://huggingface.co">huggingface.co</a>). Only
+    the model files are downloaded; no document content, personal
+    data, or usage information is sent to Hugging Face by the app.
+    Standard HTTP request metadata (such as your IP address) is
+    visible to Hugging Face, governed by their own privacy policy.
+  </p>
+
+  <h2>5. Permissions the App Requests</h2>
+  <ul>
+    <li>
+      <strong>Camera</strong> &mdash; only when you scan a document
+      using the in-app document scanner. Captured images are
+      processed on-device and stored only in the folder you
+      selected as your library.
+    </li>
+    <li>
+      <strong>Face ID / Touch ID</strong> &mdash; only to unlock
+      the app, if you enable App Lock. Biometric data is handled
+      by iOS and never seen by the app or the Developer.
+    </li>
+    <li>
+      <strong>Local Network</strong> &mdash; only if you configure
+      the optional LM Studio integration described above.
+    </li>
+    <li>
+      <strong>File access</strong> &mdash; the app reads and writes
+      only inside the folder you explicitly select as your library.
+    </li>
+  </ul>
+
+  <h2>6. Data Storage</h2>
+  <p>
+    All data created or processed by the app
+    (scanned documents, classifications, settings, the app&rsquo;s
+    on-device index) is stored exclusively on your device or in
+    a folder you choose, which may include a cloud-synchronised
+    folder you have set up yourself
+    (such as iCloud Drive, Dropbox, OneDrive, or Google Drive).
+    The Developer does not control, access, or process data
+    stored in such third-party cloud folders. Their handling
+    is governed by the respective provider&rsquo;s privacy policy.
+  </p>
+
+  <h2>7. Children&rsquo;s Privacy</h2>
+  <p>
+    ArchiveSorter is not directed at children under 13. The app
+    does not knowingly collect any data from children, as it does
+    not collect data from anyone.
+  </p>
+
+  <h2>8. Third-Party Services</h2>
+  <p>
+    The app does not include any third-party analytics, advertising,
+    crash reporting, or tracking SDKs. The only optional third-party
+    service the app may communicate with is Hugging Face Hub, when
+    you download a language model.
+  </p>
+
+  <h2>9. Your Rights</h2>
+  <p>
+    Because the Developer does not collect or store any personal
+    data about you, there is no personal data to access, rectify,
+    delete, or port. All data created in the app stays on your
+    device or in your chosen folder, where you have full control
+    and can delete it at any time.
+  </p>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>
+    If this policy changes, the &ldquo;Last updated&rdquo; date at
+    the top of this page will reflect the change. Please check
+    back occasionally.
+  </p>
+
+  <h2>11. Contact</h2>
+  <p>
+    If you have any questions about this Privacy Policy or the
+    app&rsquo;s privacy practices, please contact:
+    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>.
+  </p>
+
+  <footer>
+    &copy; 2026 Sebastian Schreck. All rights reserved.
+  </footer>
+
+</body>
+</html>
