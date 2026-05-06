@@ -56,13 +56,6 @@
     li { margin: 0.35rem 0; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    code {
-      font-family: ui-monospace, "SF Mono", Menlo, monospace;
-      font-size: 0.9em;
-      background: var(--border);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
-    }
     .highlight {
       background: var(--border);
       padding: 1rem 1.25rem;
@@ -76,173 +69,517 @@
       color: var(--muted);
       font-size: 0.85rem;
     }
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .lang-switch button {
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .lang { display: none; }
+    .lang.active { display: block; }
   </style>
 </head>
 <body>
 
-  <h1>Privacy Policy</h1>
-  <div class="meta">
-    ArchiveSorter &middot; Last updated: May 6, 2026
+  <div class="lang-switch">
+    <button onclick="setLang('en')" id="btn-en" class="active">English</button>
+    <button onclick="setLang('de')" id="btn-de">Deutsch</button>
+    <button onclick="setLang('fr')" id="btn-fr">Fran&ccedil;ais</button>
   </div>
 
-  <div class="highlight">
-    <strong>In short:</strong> ArchiveSorter does not collect, store, or
-    transmit any personal data to servers operated by the developer.
-    All document processing happens on your device.
+  <!-- ==================== ENGLISH ==================== -->
+  <div class="lang active" id="lang-en">
+    <h1>Privacy Policy</h1>
+    <div class="meta">ArchiveSorter &middot; Last updated: May 6, 2026</div>
+
+    <div class="highlight">
+      <strong>In short:</strong> ArchiveSorter does not collect, store, or
+      transmit any personal data to servers operated by the developer.
+      All document processing happens on your device.
+    </div>
+
+    <h2>1. Who We Are</h2>
+    <p>ArchiveSorter is developed and maintained by:</p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Germany<br>
+      Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <h2>2. Data We Collect</h2>
+    <p>
+      <strong>None.</strong> ArchiveSorter does not collect, log,
+      transmit, or store any personal data, usage data, analytics,
+      crash reports, advertising identifiers, or device identifiers
+      on any server operated by the Developer.
+    </p>
+    <p>The Developer does not operate any backend service for this app.</p>
+
+    <h2>3. On-Device Processing</h2>
+    <p>
+      All document scanning, optical character recognition (OCR),
+      classification, and language model inference is performed
+      locally on your device using:
+    </p>
+    <ul>
+      <li>Apple&rsquo;s Vision framework (OCR)</li>
+      <li>Apple&rsquo;s Foundation Models framework (on-device language model)</li>
+      <li>Apple&rsquo;s MLX framework (on-device language model inference)</li>
+    </ul>
+    <p>
+      Your documents, their contents, and any text extracted from them
+      never leave your device through any feature provided by the Developer.
+    </p>
+
+    <h2>4. Optional Network Connections</h2>
+    <p>
+      Two optional features may cause network traffic. Both are
+      initiated by you and are not part of automatic data collection:
+    </p>
+    <p><strong>4.1 LM Studio (local network, optional)</strong></p>
+    <p>
+      You may configure the app to use a local LM Studio server
+      that you run yourself on your own computer or local network.
+      When you enable and use this feature, document text is sent
+      over your local network to the LM Studio server you control.
+      No data leaves your local network. The Developer does not
+      operate or have access to this server.
+    </p>
+    <p><strong>4.2 Hugging Face Model Downloads (optional)</strong></p>
+    <p>
+      When you choose to download an MLX language model, the app
+      fetches the model files directly from the Hugging Face Hub
+      (<a href="https://huggingface.co">huggingface.co</a>). Only
+      the model files are downloaded; no document content, personal
+      data, or usage information is sent to Hugging Face by the app.
+      Standard HTTP request metadata (such as your IP address) is
+      visible to Hugging Face, governed by their own privacy policy.
+    </p>
+
+    <h2>5. Permissions the App Requests</h2>
+    <ul>
+      <li><strong>Camera</strong> &mdash; only when you scan a document
+        using the in-app document scanner. Captured images are
+        processed on-device and stored only in the folder you
+        selected as your library.</li>
+      <li><strong>Face ID / Touch ID</strong> &mdash; only to unlock
+        the app, if you enable App Lock. Biometric data is handled
+        by iOS and never seen by the app or the Developer.</li>
+      <li><strong>Local Network</strong> &mdash; only if you configure
+        the optional LM Studio integration described above.</li>
+      <li><strong>File access</strong> &mdash; the app reads and writes
+        only inside the folder you explicitly select as your library.</li>
+    </ul>
+
+    <h2>6. Data Storage</h2>
+    <p>
+      All data created or processed by the app
+      (scanned documents, classifications, settings, the app&rsquo;s
+      on-device index) is stored exclusively on your device or in
+      a folder you choose, which may include a cloud-synchronised
+      folder you have set up yourself
+      (such as iCloud Drive, Dropbox, OneDrive, or Google Drive).
+      The Developer does not control, access, or process data
+      stored in such third-party cloud folders. Their handling
+      is governed by the respective provider&rsquo;s privacy policy.
+    </p>
+
+    <h2>7. Children&rsquo;s Privacy</h2>
+    <p>
+      ArchiveSorter is not directed at children under 13. The app
+      does not knowingly collect any data from children, as it does
+      not collect data from anyone.
+    </p>
+
+    <h2>8. Third-Party Services</h2>
+    <p>
+      The app does not include any third-party analytics, advertising,
+      crash reporting, or tracking SDKs. The only optional third-party
+      service the app may communicate with is Hugging Face Hub, when
+      you download a language model.
+    </p>
+
+    <h2>9. Your Rights</h2>
+    <p>
+      Because the Developer does not collect or store any personal
+      data about you, there is no personal data to access, rectify,
+      delete, or port. All data created in the app stays on your
+      device or in your chosen folder, where you have full control
+      and can delete it at any time.
+    </p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>
+      If this policy changes, the &ldquo;Last updated&rdquo; date at
+      the top of this page will reflect the change. Please check
+      back occasionally.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      If you have any questions about this Privacy Policy or the
+      app&rsquo;s privacy practices, please contact:
+    </p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Germany<br>
+      Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="support.html">Support &amp; FAQ</a>
+    </p>
   </div>
 
-  <h2>1. Who We Are</h2>
-  <p>
-    ArchiveSorter is developed and maintained by:
-  </p>
-  <p>
-    Sebastian Schreck<br>
-    Nürtinger Straße 52<br>
-    71032 Böblingen<br>
-    Germany<br>
-    Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
-    Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
-  </p>
+  <!-- ==================== DEUTSCH ==================== -->
+  <div class="lang" id="lang-de">
+    <h1>Datenschutzerkl&auml;rung</h1>
+    <div class="meta">ArchiveSorter &middot; Zuletzt aktualisiert: 6. Mai 2026</div>
 
-  <h2>2. Data We Collect</h2>
-  <p>
-    <strong>None.</strong> ArchiveSorter does not collect, log,
-    transmit, or store any personal data, usage data, analytics,
-    crash reports, advertising identifiers, or device identifiers
-    on any server operated by the Developer.
-  </p>
-  <p>
-    The Developer does not operate any backend service for this app.
-  </p>
+    <div class="highlight">
+      <strong>Kurzfassung:</strong> ArchiveSorter erhebt, speichert und
+      &uuml;bermittelt keine personenbezogenen Daten an Server des Entwicklers.
+      Die gesamte Dokumentenverarbeitung findet auf Ihrem Ger&auml;t statt.
+    </div>
 
-  <h2>3. On-Device Processing</h2>
-  <p>
-    All document scanning, optical character recognition (OCR),
-    classification, and language model inference is performed
-    locally on your device using:
-  </p>
-  <ul>
-    <li>Apple&rsquo;s Vision framework (OCR)</li>
-    <li>Apple&rsquo;s Foundation Models framework (on-device language model)</li>
-    <li>Apple&rsquo;s MLX framework (on-device language model inference)</li>
-  </ul>
-  <p>
-    Your documents, their contents, and any text extracted from them
-    never leave your device through any feature provided by the
-    Developer.
-  </p>
+    <h2>1. Verantwortlicher</h2>
+    <p>ArchiveSorter wird entwickelt und betrieben von:</p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Deutschland<br>
+      Telefon: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-Mail: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
 
-  <h2>4. Optional Network Connections</h2>
-  <p>
-    Two optional features may cause network traffic. Both are
-    initiated by you and are not part of automatic data collection:
-  </p>
+    <h2>2. Datenerhebung</h2>
+    <p>
+      <strong>Keine.</strong> ArchiveSorter erhebt, protokolliert,
+      &uuml;bermittelt oder speichert keinerlei personenbezogene Daten,
+      Nutzungsdaten, Analysedaten, Absturzberichte, Werbe-IDs oder
+      Ger&auml;tekennungen auf Servern des Entwicklers.
+    </p>
+    <p>Der Entwickler betreibt keinen Backend-Dienst f&uuml;r diese App.</p>
 
-  <p><strong>4.1 LM Studio (local network, optional)</strong></p>
-  <p>
-    You may configure the app to use a local LM Studio server
-    that you run yourself on your own computer or local network.
-    When you enable and use this feature, document text is sent
-    over your local network to the LM Studio server you control.
-    No data leaves your local network. The Developer does not
-    operate or have access to this server.
-  </p>
+    <h2>3. Verarbeitung auf dem Ger&auml;t</h2>
+    <p>
+      Alle Funktionen zum Scannen, zur optischen Zeichenerkennung (OCR),
+      zur Klassifizierung und zur Sprachmodell-Inferenz werden lokal
+      auf Ihrem Ger&auml;t ausgef&uuml;hrt. Dabei kommen folgende Technologien zum Einsatz:
+    </p>
+    <ul>
+      <li>Apples Vision-Framework (OCR)</li>
+      <li>Apples Foundation-Models-Framework (On-Device-Sprachmodell)</li>
+      <li>Apples MLX-Framework (On-Device-Sprachmodell-Inferenz)</li>
+    </ul>
+    <p>
+      Ihre Dokumente, deren Inhalte und daraus extrahierte Texte
+      verlassen Ihr Ger&auml;t zu keinem Zeitpunkt durch eine Funktion des Entwicklers.
+    </p>
 
-  <p><strong>4.2 Hugging Face Model Downloads (optional)</strong></p>
-  <p>
-    When you choose to download an MLX language model, the app
-    fetches the model files directly from the Hugging Face Hub
-    (<a href="https://huggingface.co">huggingface.co</a>). Only
-    the model files are downloaded; no document content, personal
-    data, or usage information is sent to Hugging Face by the app.
-    Standard HTTP request metadata (such as your IP address) is
-    visible to Hugging Face, governed by their own privacy policy.
-  </p>
+    <h2>4. Optionale Netzwerkverbindungen</h2>
+    <p>
+      Zwei optionale Funktionen k&ouml;nnen Netzwerkverkehr verursachen.
+      Beide werden von Ihnen ausgel&ouml;st und sind keine automatische Datenerhebung:
+    </p>
+    <p><strong>4.1 LM Studio (lokales Netzwerk, optional)</strong></p>
+    <p>
+      Sie k&ouml;nnen die App so konfigurieren, dass sie einen lokalen
+      LM-Studio-Server nutzt, den Sie selbst auf Ihrem Computer oder
+      in Ihrem lokalen Netzwerk betreiben. Wenn Sie diese Funktion
+      aktivieren, wird Dokumententext &uuml;ber Ihr lokales Netzwerk an
+      den von Ihnen kontrollierten LM-Studio-Server gesendet.
+      Es verlassen keine Daten Ihr lokales Netzwerk. Der Entwickler
+      betreibt diesen Server nicht und hat keinen Zugriff darauf.
+    </p>
+    <p><strong>4.2 Hugging-Face-Modelldownloads (optional)</strong></p>
+    <p>
+      Wenn Sie ein MLX-Sprachmodell herunterladen, l&auml;dt die App die
+      Modelldateien direkt vom Hugging Face Hub
+      (<a href="https://huggingface.co">huggingface.co</a>). Es werden
+      ausschlie&szlig;lich Modelldateien heruntergeladen; keine Dokumenteninhalte,
+      personenbezogenen Daten oder Nutzungsinformationen werden von der
+      App an Hugging Face gesendet. Standard-HTTP-Metadaten (wie Ihre
+      IP-Adresse) sind f&uuml;r Hugging Face sichtbar und unterliegen
+      deren eigener Datenschutzerkl&auml;rung.
+    </p>
 
-  <h2>5. Permissions the App Requests</h2>
-  <ul>
-    <li>
-      <strong>Camera</strong> &mdash; only when you scan a document
-      using the in-app document scanner. Captured images are
-      processed on-device and stored only in the folder you
-      selected as your library.
-    </li>
-    <li>
-      <strong>Face ID / Touch ID</strong> &mdash; only to unlock
-      the app, if you enable App Lock. Biometric data is handled
-      by iOS and never seen by the app or the Developer.
-    </li>
-    <li>
-      <strong>Local Network</strong> &mdash; only if you configure
-      the optional LM Studio integration described above.
-    </li>
-    <li>
-      <strong>File access</strong> &mdash; the app reads and writes
-      only inside the folder you explicitly select as your library.
-    </li>
-  </ul>
+    <h2>5. Berechtigungen der App</h2>
+    <ul>
+      <li><strong>Kamera</strong> &mdash; nur beim Scannen eines Dokuments
+        mit dem integrierten Dokumentenscanner. Aufgenommene Bilder
+        werden auf dem Ger&auml;t verarbeitet und ausschlie&szlig;lich in dem von
+        Ihnen gew&auml;hlten Bibliotheksordner gespeichert.</li>
+      <li><strong>Face ID / Touch ID</strong> &mdash; nur zum Entsperren
+        der App, falls Sie die App-Sperre aktivieren. Biometrische Daten
+        werden von iOS verwaltet und sind weder f&uuml;r die App noch f&uuml;r
+        den Entwickler einsehbar.</li>
+      <li><strong>Lokales Netzwerk</strong> &mdash; nur bei Nutzung der
+        oben beschriebenen optionalen LM-Studio-Integration.</li>
+      <li><strong>Dateizugriff</strong> &mdash; die App liest und schreibt
+        ausschlie&szlig;lich innerhalb des von Ihnen explizit gew&auml;hlten
+        Bibliotheksordners.</li>
+    </ul>
 
-  <h2>6. Data Storage</h2>
-  <p>
-    All data created or processed by the app
-    (scanned documents, classifications, settings, the app&rsquo;s
-    on-device index) is stored exclusively on your device or in
-    a folder you choose, which may include a cloud-synchronised
-    folder you have set up yourself
-    (such as iCloud Drive, Dropbox, OneDrive, or Google Drive).
-    The Developer does not control, access, or process data
-    stored in such third-party cloud folders. Their handling
-    is governed by the respective provider&rsquo;s privacy policy.
-  </p>
+    <h2>6. Datenspeicherung</h2>
+    <p>
+      Alle von der App erstellten oder verarbeiteten Daten
+      (gescannte Dokumente, Klassifizierungen, Einstellungen, der
+      On-Device-Index) werden ausschlie&szlig;lich auf Ihrem Ger&auml;t oder in
+      einem von Ihnen gew&auml;hlten Ordner gespeichert, der auch ein
+      cloud-synchronisierter Ordner sein kann (z.&nbsp;B. iCloud Drive,
+      Dropbox, OneDrive oder Google Drive). Der Entwickler kontrolliert,
+      greift nicht auf diese Daten zu und verarbeitet sie nicht.
+      Die Handhabung unterliegt der Datenschutzerkl&auml;rung des jeweiligen
+      Cloud-Anbieters.
+    </p>
 
-  <h2>7. Children&rsquo;s Privacy</h2>
-  <p>
-    ArchiveSorter is not directed at children under 13. The app
-    does not knowingly collect any data from children, as it does
-    not collect data from anyone.
-  </p>
+    <h2>7. Datenschutz f&uuml;r Kinder</h2>
+    <p>
+      ArchiveSorter richtet sich nicht an Kinder unter 13 Jahren.
+      Die App erhebt wissentlich keine Daten von Kindern, da sie
+      generell keine Daten erhebt.
+    </p>
 
-  <h2>8. Third-Party Services</h2>
-  <p>
-    The app does not include any third-party analytics, advertising,
-    crash reporting, or tracking SDKs. The only optional third-party
-    service the app may communicate with is Hugging Face Hub, when
-    you download a language model.
-  </p>
+    <h2>8. Drittanbieter-Dienste</h2>
+    <p>
+      Die App enth&auml;lt keine Analyse-, Werbe-, Absturzmelde- oder
+      Tracking-SDKs von Drittanbietern. Der einzige optionale
+      Drittanbieter-Dienst, mit dem die App kommunizieren kann,
+      ist Hugging Face Hub beim Herunterladen eines Sprachmodells.
+    </p>
 
-  <h2>9. Your Rights</h2>
-  <p>
-    Because the Developer does not collect or store any personal
-    data about you, there is no personal data to access, rectify,
-    delete, or port. All data created in the app stays on your
-    device or in your chosen folder, where you have full control
-    and can delete it at any time.
-  </p>
+    <h2>9. Ihre Rechte</h2>
+    <p>
+      Da der Entwickler keine personenbezogenen Daten &uuml;ber Sie erhebt
+      oder speichert, gibt es keine personenbezogenen Daten, auf die
+      zugegriffen, die berichtigt, gel&ouml;scht oder &uuml;bertragen werden
+      k&ouml;nnten. Alle in der App erstellten Daten verbleiben auf Ihrem
+      Ger&auml;t oder in Ihrem gew&auml;hlten Ordner, wo Sie die volle Kontrolle
+      haben und sie jederzeit l&ouml;schen k&ouml;nnen.
+    </p>
 
-  <h2>10. Changes to This Policy</h2>
-  <p>
-    If this policy changes, the &ldquo;Last updated&rdquo; date at
-    the top of this page will reflect the change. Please check
-    back occasionally.
-  </p>
+    <h2>10. &Auml;nderungen dieser Erkl&auml;rung</h2>
+    <p>
+      Bei &Auml;nderungen dieser Datenschutzerkl&auml;rung wird das Datum
+      &bdquo;Zuletzt aktualisiert&ldquo; oben auf dieser Seite angepasst.
+      Bitte pr&uuml;fen Sie diese Seite gelegentlich.
+    </p>
 
-  <h2>11. Contact</h2>
-  <p>
-    If you have any questions about this Privacy Policy or the
-    app&rsquo;s privacy practices, please contact:
-  </p>
-  <p>
-    Sebastian Schreck<br>
-    Nürtinger Straße 52<br>
-    71032 Böblingen<br>
-    Germany<br>
-    Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
-    Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
-  </p>
+    <h2>11. Kontakt</h2>
+    <p>
+      Bei Fragen zu dieser Datenschutzerkl&auml;rung oder den
+      Datenschutzpraktiken der App wenden Sie sich bitte an:
+    </p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Deutschland<br>
+      Telefon: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-Mail: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="support.html">Support &amp; FAQ</a>
+    </p>
+  </div>
+
+  <!-- ==================== FRANCAIS ==================== -->
+  <div class="lang" id="lang-fr">
+    <h1>Politique de confidentialit&eacute;</h1>
+    <div class="meta">ArchiveSorter &middot; Derni&egrave;re mise &agrave; jour : 6 mai 2026</div>
+
+    <div class="highlight">
+      <strong>En bref :</strong> ArchiveSorter ne collecte, ne stocke et ne
+      transmet aucune donn&eacute;e personnelle vers des serveurs exploit&eacute;s par
+      le d&eacute;veloppeur. Tout le traitement des documents s&rsquo;effectue
+      sur votre appareil.
+    </div>
+
+    <h2>1. Qui sommes-nous</h2>
+    <p>ArchiveSorter est d&eacute;velopp&eacute; et maintenu par :</p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Allemagne<br>
+      T&eacute;l&eacute;phone : <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-mail : <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <h2>2. Donn&eacute;es collect&eacute;es</h2>
+    <p>
+      <strong>Aucune.</strong> ArchiveSorter ne collecte, n&rsquo;enregistre,
+      ne transmet ni ne stocke aucune donn&eacute;e personnelle, donn&eacute;e
+      d&rsquo;utilisation, donn&eacute;e analytique, rapport de plantage,
+      identifiant publicitaire ou identifiant d&rsquo;appareil sur un
+      serveur exploit&eacute; par le D&eacute;veloppeur.
+    </p>
+    <p>Le D&eacute;veloppeur n&rsquo;exploite aucun service backend pour cette application.</p>
+
+    <h2>3. Traitement sur l&rsquo;appareil</h2>
+    <p>
+      La num&eacute;risation des documents, la reconnaissance optique de
+      caract&egrave;res (OCR), la classification et l&rsquo;inf&eacute;rence du mod&egrave;le
+      linguistique sont enti&egrave;rement r&eacute;alis&eacute;es localement sur votre
+      appareil &agrave; l&rsquo;aide de :
+    </p>
+    <ul>
+      <li>Le framework Vision d&rsquo;Apple (OCR)</li>
+      <li>Le framework Foundation Models d&rsquo;Apple (mod&egrave;le linguistique sur l&rsquo;appareil)</li>
+      <li>Le framework MLX d&rsquo;Apple (inf&eacute;rence de mod&egrave;le linguistique sur l&rsquo;appareil)</li>
+    </ul>
+    <p>
+      Vos documents, leur contenu et tout texte extrait ne quittent
+      jamais votre appareil par une fonctionnalit&eacute; fournie par le D&eacute;veloppeur.
+    </p>
+
+    <h2>4. Connexions r&eacute;seau optionnelles</h2>
+    <p>
+      Deux fonctionnalit&eacute;s optionnelles peuvent g&eacute;n&eacute;rer du trafic r&eacute;seau.
+      Les deux sont initi&eacute;es par vous et ne font pas partie d&rsquo;une
+      collecte automatique de donn&eacute;es :
+    </p>
+    <p><strong>4.1 LM Studio (r&eacute;seau local, optionnel)</strong></p>
+    <p>
+      Vous pouvez configurer l&rsquo;application pour utiliser un serveur
+      LM Studio local que vous ex&eacute;cutez vous-m&ecirc;me sur votre ordinateur
+      ou votre r&eacute;seau local. Lorsque vous activez cette fonctionnalit&eacute;,
+      le texte du document est envoy&eacute; via votre r&eacute;seau local au serveur
+      LM Studio que vous contr&ocirc;lez. Aucune donn&eacute;e ne quitte votre
+      r&eacute;seau local. Le D&eacute;veloppeur n&rsquo;exploite pas ce serveur et n&rsquo;y
+      a pas acc&egrave;s.
+    </p>
+    <p><strong>4.2 T&eacute;l&eacute;chargements de mod&egrave;les Hugging Face (optionnel)</strong></p>
+    <p>
+      Lorsque vous choisissez de t&eacute;l&eacute;charger un mod&egrave;le linguistique MLX,
+      l&rsquo;application r&eacute;cup&egrave;re les fichiers du mod&egrave;le directement depuis
+      Hugging Face Hub
+      (<a href="https://huggingface.co">huggingface.co</a>). Seuls les
+      fichiers du mod&egrave;le sont t&eacute;l&eacute;charg&eacute;s ; aucun contenu de document,
+      donn&eacute;e personnelle ou information d&rsquo;utilisation n&rsquo;est envoy&eacute;
+      &agrave; Hugging Face par l&rsquo;application. Les m&eacute;tadonn&eacute;es HTTP standard
+      (comme votre adresse IP) sont visibles par Hugging Face et
+      soumises &agrave; leur propre politique de confidentialit&eacute;.
+    </p>
+
+    <h2>5. Autorisations demand&eacute;es par l&rsquo;application</h2>
+    <ul>
+      <li><strong>Cam&eacute;ra</strong> &mdash; uniquement lors de la num&eacute;risation
+        d&rsquo;un document avec le scanner int&eacute;gr&eacute;. Les images captur&eacute;es
+        sont trait&eacute;es sur l&rsquo;appareil et stock&eacute;es uniquement dans le
+        dossier que vous avez s&eacute;lectionn&eacute; comme biblioth&egrave;que.</li>
+      <li><strong>Face ID / Touch ID</strong> &mdash; uniquement pour
+        d&eacute;verrouiller l&rsquo;application si vous activez le verrouillage.
+        Les donn&eacute;es biom&eacute;triques sont g&eacute;r&eacute;es par iOS et ne sont
+        jamais accessibles &agrave; l&rsquo;application ou au D&eacute;veloppeur.</li>
+      <li><strong>R&eacute;seau local</strong> &mdash; uniquement si vous configurez
+        l&rsquo;int&eacute;gration optionnelle LM Studio d&eacute;crite ci-dessus.</li>
+      <li><strong>Acc&egrave;s aux fichiers</strong> &mdash; l&rsquo;application lit et
+        &eacute;crit uniquement dans le dossier que vous s&eacute;lectionnez
+        explicitement comme biblioth&egrave;que.</li>
+    </ul>
+
+    <h2>6. Stockage des donn&eacute;es</h2>
+    <p>
+      Toutes les donn&eacute;es cr&eacute;&eacute;es ou trait&eacute;es par l&rsquo;application
+      (documents num&eacute;ris&eacute;s, classifications, param&egrave;tres, index local)
+      sont stock&eacute;es exclusivement sur votre appareil ou dans un dossier
+      de votre choix, qui peut inclure un dossier synchronis&eacute; dans le
+      cloud (iCloud Drive, Dropbox, OneDrive ou Google Drive).
+      Le D&eacute;veloppeur ne contr&ocirc;le pas, n&rsquo;acc&egrave;de pas et ne traite pas
+      les donn&eacute;es stock&eacute;es dans ces dossiers cloud tiers. Leur gestion
+      est r&eacute;gie par la politique de confidentialit&eacute; du fournisseur
+      concern&eacute;.
+    </p>
+
+    <h2>7. Protection des mineurs</h2>
+    <p>
+      ArchiveSorter ne s&rsquo;adresse pas aux enfants de moins de 13 ans.
+      L&rsquo;application ne collecte sciemment aucune donn&eacute;e d&rsquo;enfants,
+      car elle ne collecte aucune donn&eacute;e de qui que ce soit.
+    </p>
+
+    <h2>8. Services tiers</h2>
+    <p>
+      L&rsquo;application n&rsquo;int&egrave;gre aucun SDK d&rsquo;analyse, de publicit&eacute;,
+      de rapport de plantage ou de suivi tiers. Le seul service tiers
+      optionnel avec lequel l&rsquo;application peut communiquer est
+      Hugging Face Hub, lors du t&eacute;l&eacute;chargement d&rsquo;un mod&egrave;le linguistique.
+    </p>
+
+    <h2>9. Vos droits</h2>
+    <p>
+      &Eacute;tant donn&eacute; que le D&eacute;veloppeur ne collecte ni ne stocke aucune
+      donn&eacute;e personnelle vous concernant, il n&rsquo;existe aucune donn&eacute;e
+      personnelle &agrave; consulter, rectifier, supprimer ou transf&eacute;rer.
+      Toutes les donn&eacute;es cr&eacute;&eacute;es dans l&rsquo;application restent sur votre
+      appareil ou dans votre dossier choisi, o&ugrave; vous avez un contr&ocirc;le
+      total et pouvez les supprimer &agrave; tout moment.
+    </p>
+
+    <h2>10. Modifications de cette politique</h2>
+    <p>
+      En cas de modification de cette politique, la date
+      &laquo; Derni&egrave;re mise &agrave; jour &raquo; en haut de cette page sera
+      actualis&eacute;e. Veuillez v&eacute;rifier cette page occasionnellement.
+    </p>
+
+    <h2>11. Contact</h2>
+    <p>
+      Pour toute question concernant cette politique de confidentialit&eacute;
+      ou les pratiques de confidentialit&eacute; de l&rsquo;application,
+      veuillez contacter :
+    </p>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Allemagne<br>
+      T&eacute;l&eacute;phone : <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-mail : <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="support.html">Support &amp; FAQ</a>
+    </p>
+  </div>
 
   <footer>
     &copy; 2026 Sebastian Schreck. All rights reserved.
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-switch button').forEach(function(el) { el.classList.remove('active'); });
+      document.getElementById('lang-' + lang).classList.add('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
